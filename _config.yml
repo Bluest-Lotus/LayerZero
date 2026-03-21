@@ -1,7 +1,7 @@
-title: "LayerZero"
-description: "A minimalist, GitHub Pages–compatible Jekyll e‑commerce page."
+title: "Clean Commerce"
+description: "A minimalist, GitHub Pages–compatible Jekyll e‑commerce template."
 url: "https://bluest-lotus.github.io"
-baseurl: "/LayerZero"
+baseurl: "/Minimalist-Ecommerce-Template-2026-"
 
 collections:
   products:
