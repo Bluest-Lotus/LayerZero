@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<section class="category-page">
+  <header class="category-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="category-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="product-toolbar">
+    <input
+      type="search"
+      id="product-search"
+      class="search-input"
+      placeholder="Search products by name or tag..."
+      aria-label="Search products"
+      data-scope="category"
+      data-category="{{ page.category | downcase | replace: ' ', '-' }}"
+    >
+    <div class="tag-filter" id="tag-filter"></div>
+  </div>
+
+  <div class="product-grid" id="product-grid">
+    {% assign cat_slug = page.category | downcase | replace: ' ', '-' %}
+    {% for product in site.products %}
+      {% assign product_in_category = false %}
+      {% for c in product.categories %}
+        {% assign c_slug = c | downcase | replace: ' ', '-' %}
+        {% if c_slug == cat_slug %}
+          {% assign product_in_category = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if product_in_category %}
+      <a class="product-card"
+         href="{{ site.baseurl }}{{ product.url }}"
+         data-title="{{ product.title | downcase }}"
+         data-tags="{{ product.tags | join: ',' | downcase }}">
+        <div class="product-card-image">
+          <img src="{{ site.baseurl }}{{ product.thumbnail }}" alt="{{ product.title }}">
+        </div>
+        <div class="product-card-body">
+          <h2>{{ product.title }}</h2>
+          <p class="product-card-price">${{ product.price }}</p>
+          <p class="product-card-summary">{{ product.summary }}</p>
+        </div>
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

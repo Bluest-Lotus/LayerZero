@@ -1,0 +1,28 @@
+title: "LayerZero"
+description: "A minimalist, GitHub Pages–compatible Jekyll e‑commerce page."
+url: "https://bluest-lotus.github.io"
+baseurl: "/LayerZero"
+
+collections:
+  products:
+    output: true
+    permalink: /products/:name/
+
+permalink: /:categories/:title/
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - node_modules
+  - vendor
+  - .github
+
+defaults:
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product"
+
+theme: null

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="icon" href="{{ site.baseurl }}/favicon.ico">
+  <link rel="manifest" href="{{ site.baseurl }}/manifest.webmanifest">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ site.baseurl }}/" class="logo">Clean<span>Commerce</span></a>
+
+      <nav class="nav">
+        <a href="{{ site.baseurl }}/products/">Products</a>
+        <a href="{{ site.baseurl }}/services/">Services</a>
+        <a href="{{ site.baseurl }}/about/">About</a>
+        <a href="{{ site.baseurl }}/categories/">Categories</a>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+        <span class="toggle-knob"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p class="footer-meta">Built with Jekyll · GitHub Pages–ready · Minimal & scalable.</p>
+
+      <div class="footer-sections">
+        <section class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
+            <li>Support Hours: Mon–Fri, 9am–5pm</li>
+          </ul>
+        </section>
+
+        <section class="footer-section">
+          <h3>FAQ</h3>
+          <ul>
+            <li><strong>Shipping:</strong> Worldwide shipping available.</li>
+            <li><strong>Payments:</strong> PayPal + major cards.</li>
+            <li><strong>Fulfillment:</strong> 2–3 business days.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ site.baseurl }}/assets/main.js"></script>
+</body>
+</html>

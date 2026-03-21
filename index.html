@@ -1,0 +1,48 @@
+---
+layout: default
+title: "Home"
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Minimal commerce, maximum clarity.</h1>
+    <p>Browse a clean, modern catalog designed to scale to hundreds of products without noise.</p>
+  </div>
+</section>
+
+<section class="catalog">
+  <header class="catalog-header">
+    <h2>All products</h2>
+    <p>Search, filter, and explore.</p>
+  </header>
+
+  <div class="product-toolbar">
+    <input
+      type="search"
+      id="product-search"
+      class="search-input"
+      placeholder="Search products by name or tag..."
+      aria-label="Search products"
+      data-scope="all"
+    >
+    <div class="tag-filter" id="tag-filter"></div>
+  </div>
+
+  <div class="product-grid" id="product-grid">
+    {% for product in site.products %}
+      <a class="product-card"
+         href="{{ site.baseurl }}{{ product.url }}"
+         data-title="{{ product.title | downcase }}"
+         data-tags="{{ product.tags | join: ',' | downcase }}">
+        <div class="product-card-image">
+          <img src="{{ site.baseurl }}{{ product.thumbnail }}" alt="{{ product.title }}">
+        </div>
+        <div class="product-card-body">
+          <h2>{{ product.title }}</h2>
+          <p class="product-card-price">${{ product.price }}</p>
+          <p class="product-card-summary">{{ product.summary }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
