@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product</title>
+  <script defer src="./assets/app.js"></script>
+</head>
+
+<body onload="loadProducts().then(renderProductPage)">
+
+<h1 id="title"></h1>
+<p id="desc"></p>
+
+<h3>Configuration</h3>
+
+<label>Material</label>
+<select id="material" onchange="updateQuote()"></select>
+
+<label>Color</label>
+<select id="color" onchange="updateQuote()"></select>
+
+<label>Quantity</label>
+<input id="quantity" type="number" min="1" value="1" oninput="updateQuote()" />
+
+<h3>Manufacturing Options</h3>
+
+<label>Volume (cm³)</label>
+<input id="volume" type="number" value="10" min="1" oninput="updateQuote()" />
+
+<label>Material Factor</label>
+<select id="materialFactor" onchange="updateQuote()">
+  <option value="1">PLA</option>
+  <option value="1.2">PETG</option>
+  <option value="1.4">ABS</option>
+  <option value="1.8">Nylon</option>
+</select>
+
+<h3>Shipping</h3>
+
+<select id="region" onchange="updateQuote()">
+  <option value="canada">Canada</option>
+  <option value="usa">USA</option>
+  <option value="intl">International</option>
+</select>
+
+<select id="speed" onchange="updateQuote()">
+  <option value="1">Standard</option>
+  <option value="1.6">Express</option>
+  <option value="2.2">Priority</option>
+</select>
+
+<h2 id="price">$0.00</h2>
+<p id="productionTime">Production Time: --</p>
+
+<a id="buy" target="_blank">
+  <button>Buy with PayPal</button>
+</a>
+
+<br><br>
+
+<button onclick="sendQuoteEmail()">Email This Quote</button>
+
+</body>
+</html>
