@@ -18,39 +18,51 @@ a {
   margin-left: 1rem;
 }
 
-h1, h2, h3 {
-  margin: 0.5rem 0;
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
 }
 
 .container {
+  max-width: 900px;
+  margin: auto;
   padding: 2rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+
   gap: 1rem;
+  margin-top: 2rem;
 }
 
 .card {
   background: #1f2937;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-input, select {
+input,
+select,
+button {
   width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 6px;
+  padding: 12px;
+  margin-top: 10px;
+
+  border-radius: 8px;
   border: none;
 }
 
 button {
-  padding: 10px 14px;
   background: #3b82f6;
-  border: none;
   color: white;
-  border-radius: 8px;
   cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
 }
