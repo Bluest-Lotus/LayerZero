@@ -1,0 +1,57 @@
+
+/* =========================
+   catalog.html (PRODUCT LIST)
+========================= */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catalog | Layer0</title>
+<style>
+body{margin:0;font-family:Arial;background:#0f172a;color:#fff;}
+nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#111827;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:2rem;}
+.card{background:#1f2937;padding:1rem;border-radius:10px;}
+a{color:white;text-decoration:none;}
+.btn{padding:0.6rem 1rem;background:#3b82f6;border:none;color:white;border-radius:6px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div><strong>Layer0</strong></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Catalog</a>
+  </div>
+</nav>
+
+<h1 style="padding:1rem 2rem;">Catalog</h1>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Drone Mount</h3>
+    <p>$14.99</p>
+    <a href="product-drone.html"><button class="btn">View</button></a>
+  </div>
+
+  <div class="card">
+    <h3>Tool Organizer</h3>
+    <p>$19.99</p>
+    <a href="product-tool.html"><button class="btn">View</button></a>
+  </div>
+
+  <div class="card">
+    <h3>Robotics Chassis</h3>
+    <p>$29.99</p>
+    <a href="product-robot.html"><button class="btn">View</button></a>
+  </div>
+
+</div>
+
+</body>
+</html>
+
