@@ -1,37 +1,54 @@
-<link rel="stylesheet" href="assets/styles.css">
 <!DOCTYPE html>
 <html>
 <head>
   <title>Catalog</title>
-  <script defer src="./assets/app.js"></script>
+
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <script defer src="assets/app.js"></script>
 </head>
 
 <body onload="loadProducts().then(renderCatalog)">
 
-<h1>Catalog</h1>
+<nav>
+  <strong>Layer0</strong>
 
-<input type="text" placeholder="Search..." oninput="searchProducts(this.value)" />
+  <div>
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Catalog</a>
+  </div>
+</nav>
 
-<select onchange="filterByMaterial(this.value)">
-  <option value="">All Materials</option>
-  <option value="PLA">PLA</option>
-  <option value="PETG">PETG</option>
-  <option value="ABS">ABS</option>
-  <option value="Nylon">Nylon</option>
-</select>
+<div class="container">
 
-<select onchange="filterByColor(this.value)">
-  <option value="">All Colors</option>
-  <option>Black</option>
-  <option>White</option>
-  <option>Red</option>
-  <option>Blue</option>
-</select>
+  <h1>Catalog</h1>
 
-<button onclick="resetFilters()">Reset</button>
+  <input
+    type="text"
+    placeholder="Search products..."
+    oninput="searchProducts(this.value)"
+  >
 
-<div id="catalog"
-     style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
+  <select onchange="filterByMaterial(this.value)">
+    <option value="">All Materials</option>
+    <option value="PLA">PLA</option>
+    <option value="PETG">PETG</option>
+    <option value="ABS">ABS</option>
+    <option value="Nylon">Nylon</option>
+  </select>
+
+  <select onchange="filterByColor(this.value)">
+    <option value="">All Colors</option>
+    <option value="Black">Black</option>
+    <option value="White">White</option>
+    <option value="Red">Red</option>
+    <option value="Blue">Blue</option>
+  </select>
+
+  <button onclick="resetFilters()">Reset Filters</button>
+
+  <div id="catalog" class="grid"></div>
+
 </div>
 
 </body>
