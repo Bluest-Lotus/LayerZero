@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Layer0</title>
+  <title>Layer0 Manufacturing</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+    }
+
+    nav {
+      padding: 1rem 2rem;
+      background: #111827;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hero {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      background: #3b82f6;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Layer0 Manufacturing</h1>
-<p>Custom 3D printed parts on demand.</p>
+<nav>
+  <strong>Layer0</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="catalog.html">Catalog</a>
+  </div>
+</nav>
 
-<a href="catalog.html">Browse Catalog</a>
+<div class="hero">
+  <h1>Layer0 Manufacturing</h1>
+  <p>Custom 3D printed parts on demand.</p>
+
+  <a href="catalog.html">
+    <button class="btn">Browse Catalog</button>
+  </a>
+</div>
 
 </body>
 </html>
