@@ -1,64 +1,14 @@
-/***********************
- LAYER0 MULTI-PAGE STATIC STORE (GITHUB PAGES)
- Structure:
- - index.html (home)
- - catalog.html (all products)
- - product-template.html (reuse for each product)
- - assets/styles.css (optional shared styling)
- - assets/products.js (product data)
-************************/
-
-
-/* =========================
-   index.html (HOME PAGE)
-========================= */
-
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Layer0 | Additive Manufacturing</title>
-  <style>
-    body{margin:0;font-family:Arial;background:#0f172a;color:#fff;}
-    nav{display:flex;justify-content:space-between;padding:1rem 2rem;background:#111827;}
-    a{color:#cbd5e1;text-decoration:none;margin-left:1rem;}
-    .hero{padding:6rem 2rem;text-align:center;}
-    .btn{padding:0.8rem 1.2rem;background:#3b82f6;border:none;color:#fff;border-radius:8px;cursor:pointer;}
-  </style>
+  <title>Layer0</title>
 </head>
 <body>
 
-<nav>
-  <div><strong>Layer0</strong></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="catalog.html">Catalog</a>
-  </div>
-</nav>
+<h1>Layer0 Manufacturing</h1>
+<p>Custom 3D printed parts on demand.</p>
 
-<section class="hero">
-  <h1>Manufacturing, On Demand</h1>
-  <p>Browse CAD designs and order custom 3D printed parts instantly.</p>
-  <a href="catalog.html"><button class="btn">Browse Catalog</button></a>
-</section>
+<a href="catalog.html">Browse Catalog</a>
 
 </body>
 </html>
-
-/* =========================
-   NOTES
-========================= */
-
-// Add more product pages by copying product template:
-// product-tool.html
-// product-robot.html
-
-// Future upgrade path:
-// - convert products into JSON
-// - auto-generate pages
-// - dynamic pricing engine
-// - CAD upload system
-
-// This is fully GitHub Pages compatible
