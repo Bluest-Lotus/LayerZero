@@ -1,48 +1,202 @@
----
-layout: default
-title: "Home"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layer0 | Additive Manufacturing</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: #0f172a; color: #f8fafc; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #334155;
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.95);
+    }
+    .logo { font-size: 1.4rem; font-weight: bold; }
+    .nav-links a {
+      color: #cbd5e1;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { max-width: 700px; color: #cbd5e1; }
+    .btn {
+      margin-top: 1.5rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    section { padding: 4rem 2rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #334155;
+    }
+    .pricing-form {
+      display: grid;
+      gap: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    select, input {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+    }
+    .price-output {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #60a5fa;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Layer0</div>
+    <div class="nav-links">
+      <a href="#catalog">Catalog</a>
+      <a href="#custom">Custom Parts</a>
+      <a href="#kits">Electronics</a>
+    </div>
+  </nav>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Minimal commerce, maximum clarity.</h1>
-    <p>Browse a clean, modern catalog designed to scale to hundreds of products without noise.</p>
-  </div>
-</section>
+  <section class="hero">
+    <h1>Manufacturing, On Demand.</h1>
+    <p>
+      Browse production-ready CAD designs, customize templates, and get instant pricing for additive manufacturing delivered directly to your door.
+    </p>
+    <button class="btn" onclick="document.getElementById('custom').scrollIntoView()">Get Instant Quote</button>
+  </section>
 
-<section class="catalog">
-  <header class="catalog-header">
-    <h2>All products</h2>
-    <p>Search, filter, and explore.</p>
-  </header>
+  <section id="catalog">
+  <h2>CAD Design Store</h2>
+  <p style="color:#cbd5e1; max-width:700px; margin-top:0.5rem;">
+    Purchase ready-to-print CAD designs or order them manufactured by Layer0.
+  </p>
 
-  <div class="product-toolbar">
-    <input
-      type="search"
-      id="product-search"
-      class="search-input"
-      placeholder="Search products by name or tag..."
-      aria-label="Search products"
-      data-scope="all"
-    >
-    <div class="tag-filter" id="tag-filter"></div>
-  </div>
+  <div class="grid">
 
-  <div class="product-grid" id="product-grid">
-    {% for product in site.products %}
-      <a class="product-card"
-         href="{{ site.baseurl }}{{ product.url }}"
-         data-title="{{ product.title | downcase }}"
-         data-tags="{{ product.tags | join: ',' | downcase }}">
-        <div class="product-card-image">
-          <img src="{{ site.baseurl }}{{ product.thumbnail }}" alt="{{ product.title }}">
-        </div>
-        <div class="product-card-body">
-          <h2>{{ product.title }}</h2>
-          <p class="product-card-price">${{ product.price }}</p>
-          <p class="product-card-summary">{{ product.summary }}</p>
-        </div>
+    <div class="card">
+      <h3>Drone Mount</h3>
+      <p>Lightweight engineering-grade mount for drones and rigs.</p>
+      <p><strong>$14.99</strong></p>
+      <a href="https://www.paypal.com/ncp/payment/DRONEMOUNT01" target="_blank">
+        <button class="btn">Buy with PayPal</button>
       </a>
-    {% endfor %}
+    </div>
+
+    <div class="card">
+      <h3>Tool Organizer</h3>
+      <p>Modular workshop storage system for tools and parts.</p>
+      <p><strong>$19.99</strong></p>
+      <a href="https://www.paypal.com/ncp/payment/TOOLORG01" target="_blank">
+        <button class="btn">Buy with PayPal</button>
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Robotics Chassis</h3>
+      <p>Durable rapid prototyping chassis for robotics projects.</p>
+      <p><strong>$29.99</strong></p>
+      <a href="https://www.paypal.com/ncp/payment/ROBOCHASSIS01" target="_blank">
+        <button class="btn">Buy with PayPal</button>
+      </a>
+    </div>
+
   </div>
 </section>
+
+  <section id="custom">
+    <h2>Instant Custom Pricing</h2>
+    <div class="pricing-form">
+      <select id="material">
+        <option value="1">PLA</option>
+        <option value="1.5">PETG</option>
+        <option value="2">ABS</option>
+        <option value="3">Carbon Fiber Nylon</option>
+      </select>
+
+      <select id="color">
+        <option>Black</option>
+        <option>White</option>
+        <option>Red</option>
+        <option>Blue</option>
+      </select>
+
+      <input id="volume" type="number" placeholder="Estimated volume (cm³)" />
+
+      <button class="btn" onclick="calculatePrice()">Calculate</button>
+      <div class="price-output" id="price">$0.00</div>
+    </div>
+  </section>
+
+  <section id="kits">
+    <h2>Electronics & Arduino Kits</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Starter Kit</h3>
+        <p>Sensors, LEDs, resistors, and breadboard.</p>
+      </div>
+      <div class="card">
+        <h3>IoT Builder Kit</h3>
+        <p>WiFi modules, displays, and microcontrollers.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Future Services: Upload your own CAD files • Enterprise manufacturing • Bulk ordering
+    <section style="padding: 2rem; text-align:center;">
+    <h2>Checkout</h2>
+    <p>Secure checkout powered by PayPal.</p>
+    <a href="https://www.paypal.com/paypalme/YOURPAYPAL" target="_blank">
+      <button class="btn">Buy with PayPal</button>
+    </a>
+    <p style="margin-top:1rem; color:#94a3b8; font-size:0.9rem;">
+      Replace YOURPAYPAL with your PayPal payment link or hosted button URL.
+    </p>
+  </section>
+
+  </footer>
+
+  <script>
+    function calculatePrice() {
+      const material = parseFloat(document.getElementById('material').value);
+      const volume = parseFloat(document.getElementById('volume').value) || 0;
+      const shipping = 8.99;
+      const total = (volume * material * 0.45) + shipping;
+      document.getElementById('price').innerText = '$' + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
