@@ -4,7 +4,7 @@
       "id": "drone-mount",
       "name": "Drone Mount",
       "price": 14.99,
-      "description": "Lightweight structural drone mounting bracket.",
+      "description": "Lightweight drone mounting bracket.",
       "paypal": "DRONEMOUNT01",
       "materials": ["PLA", "PETG", "ABS", "Nylon"],
       "colors": ["Black", "White", "Red", "Blue"]
@@ -13,7 +13,7 @@
       "id": "tool-organizer",
       "name": "Tool Organizer",
       "price": 19.99,
-      "description": "Modular workshop storage system.",
+      "description": "Workshop storage solution.",
       "paypal": "TOOLORG01",
       "materials": ["PLA", "PETG", "ABS"],
       "colors": ["Black", "White"]
