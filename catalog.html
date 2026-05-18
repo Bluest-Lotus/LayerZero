@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Catalog</title>
+  <title>Layer0 Catalog</title>
 
   <link rel="stylesheet" href="assets/styles.css">
 
@@ -10,46 +10,69 @@
 
 <body onload="loadProducts().then(renderCatalog)">
 
-<nav>
-  <strong>Layer0</strong>
+  <!-- NAV -->
+  <nav>
+    <strong>Layer0</strong>
 
-  <div>
-    <a href="index.html">Home</a>
-    <a href="catalog.html">Catalog</a>
-  </div>
-</nav>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+    </div>
+  </nav>
 
-<div class="container">
+  <!-- PAGE HEADER -->
+  <section class="container">
 
-  <h1>Catalog</h1>
+    <h1>
+      Product Catalog
+    </h1>
 
-  <input
-    type="text"
-    placeholder="Search products..."
-    oninput="searchProducts(this.value)"
-  >
+    <p>
+      Browse ready-to-manufacture products built for makers,
+      startups, and engineering teams.
+    </p>
 
-  <select onchange="filterByMaterial(this.value)">
-    <option value="">All Materials</option>
-    <option value="PLA">PLA</option>
-    <option value="PETG">PETG</option>
-    <option value="ABS">ABS</option>
-    <option value="Nylon">Nylon</option>
-  </select>
+  </section>
 
-  <select onchange="filterByColor(this.value)">
-    <option value="">All Colors</option>
-    <option value="Black">Black</option>
-    <option value="White">White</option>
-    <option value="Red">Red</option>
-    <option value="Blue">Blue</option>
-  </select>
+  <!-- FILTERS -->
+  <section class="container">
 
-  <button onclick="resetFilters()">Reset Filters</button>
+    <div class="filter-bar">
 
-  <div id="catalog" class="grid"></div>
+      <input
+        type="text"
+        placeholder="Search products..."
+        oninput="searchProducts(this.value)"
+      >
 
-</div>
+      <select onchange="filterByMaterial(this.value)">
+        <option value="">All Materials</option>
+        <option value="PLA">PLA</option>
+        <option value="PETG">PETG</option>
+        <option value="ABS">ABS</option>
+        <option value="Nylon">Nylon</option>
+      </select>
+
+      <select onchange="filterByColor(this.value)">
+        <option value="">All Colors</option>
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+      </select>
+
+      <button onclick="resetFilters()">
+        Reset
+      </button>
+
+    </div>
+
+    <div
+      id="catalog"
+      class="grid product-grid"
+    ></div>
+
+  </section>
 
 </body>
 </html>
