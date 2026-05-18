@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Product</title>
+  <title>Layer0 Product</title>
 
   <link rel="stylesheet" href="assets/styles.css">
 
@@ -10,82 +10,117 @@
 
 <body onload="loadProducts().then(renderProductPage)">
 
-<nav>
-  <strong>Layer0</strong>
+  <!-- NAV -->
+  <nav>
+    <strong>Layer0</strong>
 
-  <div>
-    <a href="index.html">Home</a>
-    <a href="catalog.html">Catalog</a>
-  </div>
-</nav>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+    </div>
+  </nav>
 
-<div class="container">
+  <!-- PRODUCT -->
+  <section class="container">
 
-  <h1 id="title"></h1>
+    <div class="product-layout">
 
-  <p id="desc"></p>
+      <!-- IMAGE -->
+      <div>
 
-  <label>Material</label>
-  <select id="material" onchange="updateQuote()"></select>
+        <img
+          id="productImage"
+          class="full-product-image"
+          src=""
+          alt=""
+        >
 
-  <label>Color</label>
-  <select id="color" onchange="updateQuote()"></select>
+      </div>
 
-  <label>Quantity</label>
-  <input
-    id="quantity"
-    type="number"
-    min="1"
-    value="1"
-    oninput="updateQuote()"
-  >
+      <!-- DETAILS -->
+      <div>
 
-  <label>Volume (cm³)</label>
-  <input
-    id="volume"
-    type="number"
-    min="1"
-    value="10"
-    oninput="updateQuote()"
-  >
+        <h1 id="title"></h1>
 
-  <label>Material Type</label>
-  <select id="materialFactor" onchange="updateQuote()">
-    <option value="1">PLA</option>
-    <option value="1.2">PETG</option>
-    <option value="1.4">ABS</option>
-    <option value="1.8">Nylon</option>
-  </select>
+        <p id="desc"></p>
 
-  <label>Shipping Region</label>
-  <select id="region" onchange="updateQuote()">
-    <option value="canada">Canada</option>
-    <option value="usa">USA</option>
-    <option value="intl">International</option>
-  </select>
+        <label>Material</label>
+        <select
+          id="material"
+          onchange="updateQuote()"
+        ></select>
 
-  <label>Shipping Speed</label>
-  <select id="speed" onchange="updateQuote()">
-    <option value="1">Standard</option>
-    <option value="1.6">Express</option>
-    <option value="2.2">Priority</option>
-  </select>
+        <label>Color</label>
+        <select
+          id="color"
+          onchange="updateQuote()"
+        ></select>
 
-  <h2 id="price">$0.00</h2>
+        <label>Quantity</label>
+        <input
+          id="quantity"
+          type="number"
+          min="1"
+          value="1"
+          oninput="updateQuote()"
+        >
 
-  <p id="productionTime"></p>
+        <label>Shipping Region</label>
+        <select
+          id="region"
+          onchange="updateQuote()"
+        >
+          <option value="canada">
+            Canada
+          </option>
 
-  <a id="buy" target="_blank">
-    <button>Buy with PayPal</button>
-  </a>
+          <option value="usa">
+            USA
+          </option>
 
-  <br><br>
+          <option value="intl">
+            International
+          </option>
+        </select>
 
-  <button onclick="sendQuoteEmail()">
-    Email Quote
-  </button>
+        <label>Shipping Speed</label>
+        <select
+          id="speed"
+          onchange="updateQuote()"
+        >
+          <option value="1">
+            Standard
+          </option>
 
-</div>
+          <option value="1.6">
+            Express
+          </option>
+
+          <option value="2.2">
+            Priority
+          </option>
+        </select>
+
+        <h2 id="price">
+          $0.00
+        </h2>
+
+        <p id="productionTime"></p>
+
+        <a
+          id="buy"
+          target="_blank"
+        >
+          <button>
+            Buy with PayPal
+          </button>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
 
 </body>
 </html>
