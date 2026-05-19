@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Layer0 Product</title>
 
-  <link rel="stylesheet" href="assets/styles.css">
+  <title>LayerZero Product</title>
 
-  <script defer src="assets/app.js"></script>
+  <link
+    rel="stylesheet"
+    href="./assets/styles.css"
+  >
+
+  <script
+    defer
+    src="./assets/app.js"
+  ></script>
+
 </head>
 
 <body onload="loadProducts().then(renderProductPage)">
 
   <!-- NAV -->
+
   <nav>
-    <strong>Layer0</strong>
+
+    <div class="logo">
+      LayerZero
+    </div>
 
     <div>
-      <a href="index.html">Home</a>
-      <a href="catalog.html">Catalog</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="storefront.html">
+        Storefront
+      </a>
+
+      <a href="upload.html">
+        Upload
+      </a>
+
+      <a href="pricing.html">
+        Pricing
+      </a>
+
+      <a href="materials.html">
+        Materials
+      </a>
+
     </div>
+
   </nav>
 
   <!-- PRODUCT -->
+
   <section class="container">
 
     <div class="product-layout">
 
       <!-- IMAGE -->
+
       <div>
 
         <img
@@ -38,25 +72,38 @@
       </div>
 
       <!-- DETAILS -->
+
       <div>
 
         <h1 id="title"></h1>
 
-        <p id="desc"></p>
+        <p
+          id="desc"
+          class="section-subtitle"
+        ></p>
 
-        <label>Material</label>
+        <label>
+          Material
+        </label>
+
         <select
           id="material"
           onchange="updateQuote()"
         ></select>
 
-        <label>Color</label>
+        <label>
+          Color
+        </label>
+
         <select
           id="color"
           onchange="updateQuote()"
         ></select>
 
-        <label>Quantity</label>
+        <label>
+          Quantity
+        </label>
+
         <input
           id="quantity"
           type="number"
@@ -65,11 +112,15 @@
           oninput="updateQuote()"
         >
 
-        <label>Shipping Region</label>
+        <label>
+          Shipping Region
+        </label>
+
         <select
           id="region"
           onchange="updateQuote()"
         >
+
           <option value="canada">
             Canada
           </option>
@@ -81,13 +132,18 @@
           <option value="intl">
             International
           </option>
+
         </select>
 
-        <label>Shipping Speed</label>
+        <label>
+          Shipping Speed
+        </label>
+
         <select
           id="speed"
           onchange="updateQuote()"
         >
+
           <option value="1">
             Standard
           </option>
@@ -99,21 +155,37 @@
           <option value="2.2">
             Priority
           </option>
+
         </select>
 
-        <h2 id="price">
-          $0.00
-        </h2>
+        <div class="quote-box">
 
-        <p id="productionTime"></p>
+          <p class="quote-label">
+            Estimated Total
+          </p>
+
+          <h2 id="price">
+            $0.00
+          </h2>
+
+          <p
+            id="productionTime"
+            class="quote-time"
+          ></p>
+
+        </div>
 
         <a
           id="buy"
           target="_blank"
         >
-          <button>
+
+          <button class="primary-btn full-btn">
+
             Buy with PayPal
+
           </button>
+
         </a>
 
       </div>
@@ -121,6 +193,12 @@
     </div>
 
   </section>
+
+  <footer>
+
+    © LayerZero Additive Manufacturing
+
+  </footer>
 
 </body>
 </html>
