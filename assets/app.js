@@ -1,10 +1,19 @@
 let PRODUCTS = [];
+
 let FILTERED = [];
+
 let CURRENT_PRODUCT = null;
 
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
 async function loadProducts() {
+
   const res =
-    await fetch("./assets/products.json");
+    await fetch(
+      "./assets/products.json"
+    );
 
   const data =
     await res.json();
@@ -14,11 +23,12 @@ async function loadProducts() {
 
   FILTERED =
     PRODUCTS;
+
 }
 
-/* ===========================
-   CATALOG
-=========================== */
+/* =========================
+   STOREFRONT
+========================= */
 
 function renderCatalog() {
 
@@ -40,17 +50,16 @@ function renderCatalog() {
         );
 
       card.className =
-        "card";
+        "product-card";
 
       card.innerHTML = `
 
         <img
           src="${product.image}"
           alt="${product.name}"
-          class="product-image"
         >
 
-        <div class="card-content">
+        <div class="product-content">
 
           <h3>
             ${product.name}
@@ -60,20 +69,27 @@ function renderCatalog() {
             ${product.description}
           </p>
 
-          <p class="price">
-            $${product.price}
-          </p>
+          <div class="product-footer">
+
+            <h3>
+              $${product.price}
+            </h3>
+
+            <a
+              href="product.html?id=${product.id}"
+            >
+
+              <button class="primary-btn">
+
+                View Product
+
+              </button>
+
+            </a>
+
+          </div>
 
         </div>
-
-        <a
-          href="product.html?id=${product.id}"
-          class="product-link"
-        >
-          <button>
-            View Product
-          </button>
-        </a>
 
       `;
 
@@ -86,158 +102,9 @@ function renderCatalog() {
 
 }
 
-function searchProducts(
-  query
-) {
-
-  query =
-    query.toLowerCase();
-
-  FILTERED =
-    PRODUCTS.filter(
-      product =>
-
-        product.name
-          .toLowerCase()
-          .includes(query)
-
-        ||
-
-        product.description
-          .toLowerCase()
-          .includes(query)
-
-    );
-
-  renderCatalog();
-
-}
-
-function filterByMaterial(
-  material
-) {
-
-  FILTERED =
-    !material
-
-      ? PRODUCTS
-
-      : PRODUCTS.filter(
-          product =>
-            product.materials.includes(
-              material
-            )
-        );
-
-  renderCatalog();
-
-}
-
-function filterByColor(
-  color
-) {
-
-  FILTERED =
-    !color
-
-      ? PRODUCTS
-
-      : PRODUCTS.filter(
-          product =>
-            product.colors.includes(
-              color
-            )
-        );
-
-  renderCatalog();
-
-}
-
-function resetFilters() {
-
-  FILTERED =
-    PRODUCTS;
-
-  renderCatalog();
-
-}
-
-/* ===========================
-   PRICING
-=========================== */
-
-function calculateBulk(
-  price,
-  qty
-) {
-
-  let discount = 0;
-
-  if (qty >= 25)
-    discount = 0.25;
-
-  else if (qty >= 10)
-    discount = 0.15;
-
-  else if (qty >= 5)
-    discount = 0.10;
-
-  return (
-    price *
-    qty *
-    (1 - discount)
-  );
-
-}
-
-function calculateShipping(
-  region,
-  speed
-) {
-
-  let base = 0;
-
-  if (
-    region ===
-    "canada"
-  ) base = 6.99;
-
-  if (
-    region ===
-    "usa"
-  ) base = 9.99;
-
-  if (
-    region ===
-    "intl"
-  ) base = 18.99;
-
-  return (
-    base *
-    parseFloat(
-      speed
-    )
-  );
-
-}
-
-function calculateProductionTime(
-  qty
-) {
-
-  const hours =
-    qty * 2;
-
-  return (
-    hours +
-    " hrs"
-  );
-
-}
-
-/* ===========================
+/* =========================
    PRODUCT PAGE
-=========================== */
+========================= */
 
 function renderProductPage() {
 
@@ -245,9 +112,7 @@ function renderProductPage() {
 
     new URLSearchParams(
       window.location.search
-    ).get(
-      "id"
-    );
+    ).get("id");
 
   CURRENT_PRODUCT =
 
@@ -291,19 +156,21 @@ function renderProductPage() {
     );
 
   CURRENT_PRODUCT.materials.forEach(
-    item =>
+    item => {
 
       material.innerHTML +=
-        `<option>${item}</option>`
+        `<option>${item}</option>`;
 
+    }
   );
 
   CURRENT_PRODUCT.colors.forEach(
-    item =>
+    item => {
 
       color.innerHTML +=
-        `<option>${item}</option>`
+        `<option>${item}</option>`;
 
+    }
   );
 
   document.getElementById(
@@ -313,6 +180,74 @@ function renderProductPage() {
     `https://www.paypal.com/ncp/payment/${CURRENT_PRODUCT.paypal}`;
 
   updateQuote();
+
+}
+
+/* =========================
+   PRICING
+========================= */
+
+function calculateBulk(
+  price,
+  qty
+) {
+
+  let discount = 0;
+
+  if (qty >= 25)
+    discount = 0.25;
+
+  else if (qty >= 10)
+    discount = 0.15;
+
+  else if (qty >= 5)
+    discount = 0.10;
+
+  return (
+    price *
+    qty *
+    (1 - discount)
+  );
+
+}
+
+function calculateShipping(
+  region,
+  speed
+) {
+
+  let base = 0;
+
+  if (
+    region === "canada"
+  ) base = 6.99;
+
+  if (
+    region === "usa"
+  ) base = 9.99;
+
+  if (
+    region === "intl"
+  ) base = 18.99;
+
+  return (
+    base *
+    parseFloat(speed)
+  );
+
+}
+
+function calculateProductionTime(
+  qty
+) {
+
+  const hours =
+    qty * 2;
+
+  return (
+    hours +
+    " hrs"
+  );
 
 }
 
@@ -371,14 +306,12 @@ function updateQuote() {
     "price"
   ).innerText =
 
-    `$${total.toFixed(
-      2
-    )}`;
+    `$${total.toFixed(2)}`;
 
   document.getElementById(
     "productionTime"
   ).innerText =
 
-    `Production Time: ${productionTime}`;
+    `Estimated Production Time: ${productionTime}`;
 
 }
