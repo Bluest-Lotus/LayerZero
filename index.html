@@ -9,21 +9,50 @@
     href="./assets/styles.css"
   >
 
+  <script
+    defer
+    src="./assets/app.js"
+  ></script>
+
 </head>
 
-<body>
+<body onload="loadProducts().then(renderPreviewCarousel)">
+
+  <!-- BACKGROUND ICONOGRAPHY -->
+
+  <div class="bg-grid"></div>
+
+  <div class="floating-icons">
+
+    <div class="float-icon">⚙️</div>
+    <div class="float-icon">🧩</div>
+    <div class="float-icon">📦</div>
+    <div class="float-icon">🖨️</div>
+
+  </div>
+
+  <!-- NAV -->
 
   <nav>
 
-    <div class="logo">
-      LayerZero
-    </div>
+    <a
+      href="index.html"
+      class="logo-link"
+    >
+
+      <div class="logo">
+
+        <span class="logo-accent">
+          Layer
+        </span>
+
+        Zero
+
+      </div>
+
+    </a>
 
     <div>
-
-      <a href="index.html">
-        Home
-      </a>
 
       <a href="storefront.html">
         Storefront
@@ -61,15 +90,21 @@
 
   <section class="hero">
 
+    <div class="hero-badge">
+      Modern Additive Manufacturing
+    </div>
+
     <h1>
+
       Precision 3D Printing
-      Made Simple
+      Made Friendly
+
     </h1>
 
     <p>
 
-      Fast, approachable additive manufacturing for makers,
-      startups, students, and businesses.
+      Fast, approachable additive manufacturing
+      for makers, startups, students, and businesses.
 
       From ready-made prints to fully custom parts,
       LayerZero helps bring ideas into reality.
@@ -79,22 +114,73 @@
     <div class="hero-buttons">
 
       <a href="storefront.html">
+
         <button class="primary-btn">
+
           Browse Prints
+
         </button>
+
       </a>
 
       <a href="upload.html">
+
         <button class="secondary-btn">
+
           Upload Your File
+
         </button>
+
       </a>
 
     </div>
 
   </section>
 
-  <!-- SERVICES -->
+  <!-- PREVIEW CAROUSEL -->
+
+  <section class="container">
+
+    <div class="section-header">
+
+      <div>
+
+        <h2 class="section-title">
+          Featured Prints
+        </h2>
+
+        <p class="section-subtitle">
+
+          Ready-to-manufacture products
+          designed for makers,
+          robotics,
+          workspaces,
+          and prototyping.
+
+        </p>
+
+      </div>
+
+      <a href="storefront.html">
+
+        <button class="secondary-btn">
+
+          View Storefront
+
+        </button>
+
+      </a>
+
+    </div>
+
+    <div
+      id="previewCarousel"
+      class="carousel"
+    ></div>
+
+  </section>
+
+  <!-- WORKFLOW -->
 
   <section class="container">
 
@@ -113,7 +199,11 @@
 
     <div class="grid three-grid">
 
-      <div class="card">
+      <div class="card workflow-card">
+
+        <div class="workflow-icon">
+          🛒
+        </div>
 
         <h3>
           Preselected Prints
@@ -122,14 +212,20 @@
         <p>
 
           Browse ready-to-manufacture products,
-          tools, organizers, robotics parts,
+          tools,
+          organizers,
+          robotics parts,
           and STEM accessories.
 
         </p>
 
       </div>
 
-      <div class="card">
+      <div class="card workflow-card">
+
+        <div class="workflow-icon">
+          📤
+        </div>
 
         <h3>
           Upload Your File
@@ -137,7 +233,7 @@
 
         <p>
 
-          Upload your own CAD files,
+          Upload your CAD files,
           choose materials and quality,
           and receive manufacturing estimates.
 
@@ -145,7 +241,11 @@
 
       </div>
 
-      <div class="card">
+      <div class="card workflow-card">
+
+        <div class="workflow-icon">
+          ✏️
+        </div>
 
         <h3>
           Custom Design Support
@@ -155,7 +255,120 @@
 
           Need help designing a part?
           We can assist with CAD modeling,
-          repairs, and functional prototyping.
+          repairs,
+          and functional prototyping.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRICE ESTIMATOR -->
+
+  <section class="container">
+
+    <div class="estimator-box">
+
+      <h2 class="section-title">
+        Quick Print Estimator
+      </h2>
+
+      <p class="section-subtitle">
+
+        Get a fast estimate based on material,
+        color,
+        and filament usage.
+
+      </p>
+
+      <div class="grid estimator-grid">
+
+        <div>
+
+          <label>
+            Material
+          </label>
+
+          <select id="estimateMaterial">
+
+            <option value="0.12">
+              PLA
+            </option>
+
+            <option value="0.18">
+              PETG
+            </option>
+
+            <option value="0.26">
+              TPU
+            </option>
+
+            <option value="0.32">
+              Nylon
+            </option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>
+            Color
+          </label>
+
+          <select id="estimateColor">
+
+            <option value="0">
+              Standard
+            </option>
+
+            <option value="2">
+              Specialty Color
+            </option>
+
+          </select>
+
+        </div>
+
+        <div>
+
+          <label>
+            Estimated Grams Used
+          </label>
+
+          <input
+            id="estimateGrams"
+            type="number"
+            value="100"
+          >
+
+        </div>
+
+      </div>
+
+      <button
+        class="primary-btn"
+        onclick="calculateHomepageEstimate()"
+      >
+
+        Calculate Estimate
+
+      </button>
+
+      <div class="estimate-result">
+
+        <h2 id="estimatePrice">
+          $0.00
+        </h2>
+
+        <p id="estimateTime">
+
+          Estimated Production Time:
+          —
 
         </p>
 
@@ -169,19 +382,30 @@
 
   <section class="container">
 
-    <h2 class="section-title">
-      Built for Makers and Small Business
-    </h2>
+    <div class="trust-box">
 
-    <p class="section-subtitle">
+      <h2 class="section-title">
 
-      Trusted by students, hobbyists,
-      robotics builders, and growing teams
-      looking for approachable manufacturing.
+        Trusted by Makers,
+        Students,
+        and Small Businesses
 
-    </p>
+      </h2>
+
+      <p class="section-subtitle">
+
+        LayerZero is focused on making
+        additive manufacturing approachable,
+        modern,
+        and accessible.
+
+      </p>
+
+    </div>
 
   </section>
+
+  <!-- FOOTER -->
 
   <footer>
 
