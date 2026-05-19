@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>LayerZero Storefront</title>
+
+  <link
+    rel="stylesheet"
+    href="./assets/styles.css"
+  >
+
+  <script
+    defer
+    src="./assets/app.js"
+  ></script>
+
+</head>
+
+<body onload="loadProducts().then(renderCatalog)">
+
+  <nav>
+
+    <div class="logo">
+      LayerZero
+    </div>
+
+    <div>
+
+      <a href="index.html">Home</a>
+      <a href="upload.html">Upload</a>
+      <a href="pricing.html">Pricing</a>
+
+    </div>
+
+  </nav>
+
+  <section class="container">
+
+    <h1 class="section-title">
+      Preselected Prints
+    </h1>
+
+    <p class="section-subtitle">
+
+      Ready-to-print products
+      manufactured and shipped directly to you.
+
+    </p>
+
+    <div
+      id="catalog"
+      class="product-grid"
+    ></div>
+
+  </section>
+
+</body>
+</html>
